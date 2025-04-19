@@ -1,0 +1,94 @@
+body {
+    background: rgb(99, 39, 120);
+}
+
+.btn {
+    margin: 10px;
+}
+.btn.btn-outline-info {
+    background: red;
+    background-color: black;
+    box-shadow: none;
+    border: none;
+}
+
+.btn.btn-outline-info:hover {
+    background: #682773;
+}
+
+.btn.btn-outline-info:focus {
+    background: #682773;
+    box-shadow: none;
+}
+
+.btn.btn-outline-info:active {
+    background: red;
+    box-shadow: none;
+}
+
+.container {
+    margin: 50px;
+    height: 100%;
+    width: 90%;
+}
+
+h1 {
+    color: #e6f4ed;
+}
+
+.content-section {
+    background-color: #f6f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+
+.list-inline {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8;
+}
+
+.btn.btn-outline-info {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none;
+}
+
+.btn.btn-outline-info:hover {
+    background: #682773;
+}
+
+.btn.btn-outline-info:focus {
+    background: #682773;
+    box-shadow: none;
+}
+
+.btn.btn-outline-info:active {
+    background: #682773;
+    box-shadow: none;
+}
+
+
+.labels {
+    font-size: 11px;
+}
+
+.home-btn {
+    margin-left: 140px;
+    margin: 20px;
+}
+
+.form-group {
+    height: 100%;
+    align-items: center;
+}
+

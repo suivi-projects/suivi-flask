@@ -1,0 +1,17 @@
+Flask
+Flask-WTF
+Flask-Login
+Flask-Bcrypt
+Flask-SQLAlchemy
+Stripe
+email-validator
+psycopg2-binary
+flask-sslify
+Flask-Mail
+geopy
+geoalchemy2
+twilio
+retrying
+flask-admin
+pip install requests
+

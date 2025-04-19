@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suivi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/headfoot.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-P8XN+Jyrp6rVIiIMT9RYBq5h6DScnIxK1K8yhSfFNSq7hdx38P4qNGpbKNisF3d6V2fK60h0RVaMx6syPeCifQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/ionicons@6.0.2/dist/css/ionicons.min.css">
+</head>
+<body>
+  {% include 'header.html' %}
+
+  <div class="row">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+  <section class="p-4 lg:p-8 bg-black text-white">
+    <div class="container mx-auto space-y-12">
+      <div class="d-flex align-items-center flex-lg-row flex-column">
+        <div class="d-shape">
+          <img src="{{ url_for('static', filename='images/feature2.png') }}" alt="Your Image">
+        </div>
+        <div class="content p-6 flex-grow-1">
+          <h3 class="text-3xl font-bold">Welcome to suivi</h3>
+          <p class="my-6 text-gray-400 dark:text-gray-600">Explore our services and get started today!</p>
+          <a href="{{ url_for('auth.register') }}" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="policySection" class="policy-section">
+    <div class="policy-content">
+      <button id="closePolicyBtn" class="close-policy-btn">Close</button>
+      <div id="timelyDelivery" class="policy-content-item" style="display: none;">
+        <h2>Timely Delivery Policy</h2>
+        <p>We strive to deliver all Parcels in a timely manner to ensure customer satisfaction...</p>
+      </div>
+      <div id="secureParcelHandling" class="policy-content-item" style="display: none;">
+        <h2>Secure Parcel Handling Policy</h2>
+        <p>We prioritize the safety and security of all parcels entrusted to us...</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container p-4 lg:p-8 bg-black-800 dark:bg-back-100 text-black-100 dark:text-black-800">
+    <div class="container mx-auto space-y-12">
+      <div class="d-flex align-items-center flex-lg-row flex-column">
+        <div class="content p-6 flex-grow-1">
+          <h3 class="text-white-400 font-bold">Revolutionizing Shipping, Simplified</h3>
+          <p class="my-6 text-gray-400 dark:text-gray-600">Discover seamless shipping solutions tailored to your needs...</p>
+          <a href="{{ url_for('parcel.request_pickup') }}" class="btn btn-primary">REQUEST PICKUP NOW</a>
+        </div>
+        <div class="image-container">
+          <img src="{{ url_for('static', filename='images/feature3.png') }}" alt="Feature 1 Image">
+        </div>
+      </div>
+      <div class="d-flex align-items-center flex-lg-row-reverse flex-column">
+        <div class="content p-6 flex-grow-1">
+          <h3 class="text-3xl font-bold">Unlock Exclusive Benefits When you join SUIVI as a Rider</h3>
+          <p class="my-6 text-gray-400 dark:text-gray-600">Discover opportunities at suivi...</p>
+          <a href="{{ url_for('rider.register_rider') }}" class="btn btn-primary">REGISTER AS A RIDER</a>
+        </div>
+        <div class="image-container">
+          <img src="{{ url_for('static', filename='images/background.jpg') }}" alt="Feature 2 Image">
+        </div>
+      </div>
+      <div class="d-flex align-items-center flex-lg-row flex-column">
+        <div class="content p-6 flex-grow-1">
+          <h3 class="text-3xl font-bold">Easily Track Your Parcel Every Step of the Way</h3>
+          <p class="my-6 text-gray-400 dark:text-gray-600">Stay informed every step of the way with our intuitive parcel tracking feature...</p>
+          <a href="{{ url_for('parcel.track_parcel') }}" class="btn btn-primary">TRACK YOUR PARCEL</a>
+        </div>
+        <div class="image-container">
+          <img src="{{ url_for('static', filename='images/feature1.png') }}" alt="Feature 3 Image">
+        </div>
+      </div>
+      <div class="d-flex align-items-center flex-lg-row-reverse flex-column">
+        <div class="content p-6 flex-grow-1">
+          <h3 class="text-3xl font-bold">Login as a Rider to view assignments and deliver</h3>
+          <p class="my-6 text-gray-400 dark:text-gray-600">If you are a rider, please login to access your assignments...</p>
+          <a href="{{ url_for('rider.login_rider') }}" class="btn btn-primary">LOGIN AS A RIDER</a>
+        </div>
+        <div class="image-container">
+          <img src="{{ url_for('static', filename='images/feature4.jpg') }}" alt="Feature 4 Image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="p-5 bg-light">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">How It Works</h2>
+      <div class="row justify-content-center">
+        
+        <div class="col-sm-6 col-md-3 mb-4">
+          <div class="p-4 bg-white shadow rounded h-100 d-flex flex-column align-items-center justify-content-center hover:shadow-lg transition-all duration-300 cursor-pointer" style="min-height: 200px;">
+            <i class="fas fa-user-plus fa-2x mb-2"></i>
+            <h5 class="font-bold text-info">1. Sign Up</h5>
+            <p class="text-muted">Create an account or log in with your existing credentials.</p>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3 mb-4">
+          <div class="p-4 bg-white shadow rounded h-100 d-flex flex-column align-items-center justify-content-center hover:shadow-lg transition-all duration-300 cursor-pointer" style="min-height: 200px;">
+            <i class="fas fa-box-open fa-2x mb-2"></i>
+            <h5 class="font-bold text-info">2. Request Pickup</h5>
+            <p class="text-muted">Tell us what you need to send, and we’ll arrange the pickup.</p>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3 mb-4">
+          <div class="p-4 bg-white shadow rounded h-100 d-flex flex-column align-items-center justify-content-center hover:shadow-lg transition-all duration-300 cursor-pointer" style="min-height: 200px;">
+            <i class="fas fa-truck fa-2x mb-2"></i>
+            <h5 class="font-bold text-info">3. Track Your Parcel</h5>
+            <p class="text-muted">Follow your parcel’s journey every step of the way.</p>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3 mb-4">
+          <div class="p-4 bg-white shadow rounded h-100 d-flex flex-column align-items-center justify-content-center hover:shadow-lg transition-all duration-300 cursor-pointer" style="min-height: 200px;">
+            <i class="fas fa-smile fa-2x mb-2"></i>
+            <h5 class="font-bold text-info">4. Receive &amp; Rate</h5>
+            <p class="text-muted">Parcel delivered? Rate the service and share your feedback!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="p-5 bg-black text-white">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold mb-4 text-center">Why Choose SUIVI?</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="p-4 text-center">
+            <i class="fas fa-shield-alt fa-2x mb-2"></i>
+            <h5 class="font-bold">Secure Handling</h5>
+            <p>We ensure every parcel is safe from pickup to delivery.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4 text-center">
+            <i class="fas fa-clock fa-2x mb-2"></i>
+            <h5 class="font-bold">Timely Deliveries</h5>
+            <p>Our efficient network ensures parcels reach on schedule.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="p-4 text-center">
+            <i class="fas fa-mobile-alt fa-2x mb-2"></i>
+            <h5 class="font-bold">Mobile-Friendly</h5>
+            <p>Manage everything on-the-go with our upcoming Android app.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+  </section>
+
+  
+  <section class="p-5 bg-gray-100">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold mb-6 text-center">What Our Users Say</h2>
+      
+      <div class="swiper" style="width: 100%; max-width: 800px; margin: 0 auto;">
+        
+        <div class="swiper-wrapper">
+          
+          <div class="swiper-slide">
+            <div class="p-4 bg-white shadow rounded h-100 d-flex flex-column justify-content-center">
+              <p class="text-gray-600 italic">"SUIVI made sending important documents across the city a breeze! Highly recommended."</p>
+              <h6 class="font-bold mt-2 text-center text-dark">- Jane Doe</h6>
+            </div>
+          </div>
+          
+          <div class="swiper-slide">
+            <div class="p-4 bg-white shadow rounded h-100 d-flex flex-column justify-content-center">
+              <p class="text-gray-600 italic">"The tracking feature is a lifesaver. I'm always updated on my parcel's location and ETA."</p>
+              <h6 class="font-bold mt-2 text-center text-dark">- John Smith</h6>
+            </div>
+          </div>
+          
+          <div class="swiper-slide">
+            <div class="p-4 bg-white shadow rounded h-100 d-flex flex-column justify-content-center">
+              <p class="text-gray-600 italic">"Fantastic service and super friendly riders. I'll definitely use SUIVI again!"</p>
+              <h6 class="font-bold mt-2 text-center text-dark">- Sarah K.</h6>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="p-5 bg-white text-white text-center">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Join SUIVI Today!</h2>
+      <p class="mb-4">Whether you're a frequent sender, a local business, or a dedicated rider, SUIVI is here to streamline your shipping experience.</p>
+      <div>
+        <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg mr-2" style="margin: 5px;">Sign Up as Sender</a>
+        <a href="{{ url_for('rider.register_rider') }}" class="btn btn-dark btn-lg">Sign Up as Rider</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <button class="open-button" onclick="openForm()">Chat with us</button>
+  <div class="chat-popup" id="chatForm">
+    <div class="form-container">
+      <h1>Chat with us</h1>
+      
+      <div id="chat-log" style="border: 1px solid #ccc; height: 200px; overflow-y: auto; margin-bottom: 10px; padding: 5px;"></div>
+      
+      <input id="chat-message-input" type="text" size="40" placeholder="Type your message..." style="margin-bottom: 10px;" />
+      <button id="chat-message-send" class="btn btn-primary">Send</button>
+      
+      <button type="button" class="btn cancel" onclick="closeForm()" style="margin-top: 10px;">Close</button>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
+
+  
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      autoplay: {
+        delay: 4000, // 4 seconds
+        disableOnInteraction: false
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      }
+    });
+
+    // WebSocket Chat Functionality
+    const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/');
+
+    chatSocket.onmessage = function (e) {
+      const data = JSON.parse(e.data);
+      const message = data.message;
+      const chatLog = document.getElementById('chat-log');
+      const messageElem = document.createElement('div');
+      messageElem.textContent = message;
+      messageElem.style.margin = '5px 0';
+      chatLog.appendChild(messageElem);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    };
+
+    chatSocket.onclose = function (e) {
+      console.error('Chat socket closed unexpectedly.');
+    };
+
+    const sendButton = document.getElementById('chat-message-send');
+    const messageInput = document.getElementById('chat-message-input');
+
+    sendButton.onclick = function () {
+      const message = messageInput.value;
+      if (message.trim().length > 0) {
+        chatSocket.send(JSON.stringify({ message: message }));
+        messageInput.value = '';
+      }
+    };
+
+    messageInput.addEventListener('keyup', function (e) {
+      if (e.key === 'Enter') {
+        sendButton.click();
+      }
+    });
+
+    // Toggle Chat Form
+    function openForm() {
+      document.getElementById('chatForm').style.display = 'block';
+    }
+    function closeForm() {
+      document.getElementById('chatForm').style.display = 'none';
+    }
+
+    window.openForm = openForm;
+    window.closeForm = closeForm;
+  </script>
+</body>
+</html>
+

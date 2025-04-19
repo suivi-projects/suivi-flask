@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles/edit.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/headfoot.css') }}">
+</head>
+
+<body>
+    {% include 'header.html' %}
+    <div class="container">
+        <h1>Rider's Profile Section</h1>
+        <div class="content-section">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Edit Profile</legend>
+                    <div class="form-group">
+                        {{ form.username.label(class="form-control-label") }}
+                        {{ form.username(class="form-control form-control-lg") }}
+                        {% for error in form.username.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }}
+                        {{ form.email(class="form-control form-control-lg") }}
+                        {% for error in form.email.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.contact.label(class="form-control-label") }}
+                        {{ form.contact(class="form-control form-control-lg") }}
+                        {% for error in form.contact.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.vehicle_type.label(class="form-control-label") }}
+                        {{ form.vehicle_type(class="form-control form-control-lg") }}
+                        {% for error in form.vehicle_type.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.vehicle_registration.label(class="form-control-label") }}
+                        {{ form.vehicle_registration(class="form-control form-control-lg") }}
+                        {% for error in form.vehicle_registration.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.area_of_operation.label(class="form-control-label") }}
+                        {{ form.area_of_operation(class="form-control form-control-lg") }}
+                        {% for error in form.area_of_operation.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.current_location.label(class="form-control-label") }}
+                        {{ form.current_location(class="form-control form-control-lg") }}
+                        {% for error in form.current_location.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </fieldset>
+
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="change_password">
+                    <label class="form-check-label" for="change_password">Change Password</label>
+                </div>
+
+                <div id="password_fields" style="display: none;">
+                    <fieldset class="form-group">
+                        
+                        <div class="form-group">
+                            {{ form.new_password.label(class="form-control-label") }}
+                            {{ form.new_password(class="form-control form-control-lg") }}
+                            {% for error in form.new_password.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.confirm_new_password.label(class="form-control-label") }}
+                            {{ form.confirm_new_password(class="form-control form-control-lg") }}
+                            {% for error in form.confirm_new_password.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#change_password').change(function() {
+                $('#password_fields').slideToggle();
+            });
+        });
+    </script>
+</body>
+
+</html>

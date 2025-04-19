@@ -1,0 +1,251 @@
+:root {
+    --primary-color: #1abc9c;
+    --primary-darker: #16a085;
+
+    --secondary-color: #6c757d;
+    --light-gray: #f8f9fa;
+    --dark-text: #212529;
+    --muted-text: #6c757d;
+    --white-color: #ffffff;
+    --dark-bg-color: #2c3e50;
+    --section-padding: 4rem 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.small {
+    font-size: 0.9em;
+}
+
+.about-hero {
+    padding: var(--section-padding);
+    background-color: var(--dark-bg-color);
+    color: var(--white-color);
+}
+
+.hero-logo {
+    max-height: 60px;
+    width: auto;
+}
+
+.about-hero h1 {
+    color: var(--white-color);
+    font-weight: 700;
+}
+
+.about-hero .lead {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+}
+
+.section-title {
+    font-weight: 700;
+    color: var(--dark-text);
+    position: relative;
+    padding-bottom: 0.75rem;
+    margin-bottom: 3rem !important;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+section:nth-of-type(even) {
+     background-color: var(--light-gray);
+}
+.about-hero {
+     background-color: var(--dark-bg-color);
+}
+#cta {
+    background-color: var(--dark-bg-color);
+}
+
+
+#mission-vision {
+    padding: var(--section-padding);
+}
+#mission-vision .h3 {
+    color: var(--primary-color);
+}
+#mission-vision i {
+    color: var(--primary-color);
+}
+
+
+#why-choose-suivi {
+    padding: var(--section-padding);
+}
+#why-choose-suivi .feature-item {
+    background-color: var(--white-color);
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem !important;
+}
+#why-choose-suivi .feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+}
+#why-choose-suivi .icon-container i {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+#why-choose-suivi .feature-item:hover .icon-container i {
+    color: var(--primary-darker);
+}
+#why-choose-suivi .h5 {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+#how-it-works {
+    padding: var(--section-padding);
+}
+#how-it-works .icon-container i {
+    color: var(--primary-color);
+}
+#how-it-works .h6 {
+    color: var(--dark-text);
+}
+
+#our-values {
+    padding: var(--section-padding);
+}
+#our-values .value-item i {
+    color: var(--primary-color);
+}
+#our-values .fw-bold {
+    color: var(--dark-text);
+    font-size: 1.1rem;
+}
+
+#reviews {
+    padding: var(--section-padding);
+}
+#reviews .review-card {
+    border: 1px solid #e9ecef;
+    transition: box-shadow 0.3s ease;
+}
+#reviews .review-card:hover {
+     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+#reviews .blockquote p {
+    font-style: italic;
+    color: #495057;
+    font-size: 1.05rem;
+}
+#reviews .blockquote-footer {
+    color: var(--muted-text);
+    font-weight: 600;
+}
+#reviews .fa-quote-left {
+     color: var(--primary-color);
+     opacity: 0.5;
+}
+#reviews .review-img {
+    object-fit: cover;
+}
+
+#meet-the-team {
+    padding: var(--section-padding);
+}
+#meet-the-team .team-card {
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#meet-the-team .team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+#meet-the-team .team-member-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 5px solid var(--white-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: -70px !important;
+    position: relative;
+    z-index: 2;
+}
+#meet-the-team .card-body {
+    padding-top: 80px;
+}
+#meet-the-team .card-title {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+#meet-the-team .team-social .btn {
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    line-height: 36px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-color: #adb5bd;
+    color: var(--dark-text);
+}
+#meet-the-team .team-social .btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+#cta {
+    padding: var(--section-padding);
+    background-color: var(--dark-bg-color);
+    color: var(--white-color);
+}
+#cta h2 {
+    font-weight: 700;
+    color: var(--white-color);
+}
+#cta .lead {
+     color: rgba(255, 255, 255, 0.85);
+}
+#cta .btn-light {
+    font-weight: 600;
+    background-color: var(--white-color);
+    color: var(--dark-bg-color);
+    border: 1px solid var(--white-color);
+}
+#cta .btn-light:hover {
+    background-color: #e9ecef;
+    border-color: #e9ecef;
+    color: var(--dark-bg-color);
+}
+#cta .btn-outline-light {
+     font-weight: 600;
+     color: var(--white-color);
+     border-color: var(--white-color);
+}
+#cta .btn-outline-light:hover {
+     background-color: var(--white-color);
+     color: var(--dark-bg-color);
+}
+
+
+.h-100 {
+    height: 100% !important;
+}

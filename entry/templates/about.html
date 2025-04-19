@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Suivi - Reliable & Fast Delivery</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/about.css') }}">
+
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <main>
+        
+        <section class="about-hero text-center py-5 text-white">
+            <div class="container">
+                 <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Suivi Logo" class="hero-logo mb-4">
+                <h1 class="display-4 mb-3">Connecting Your World, One Parcel at a Time</h1>
+                <p class="lead col-lg-8 mx-auto mb-0">
+                    Suivi leverages cutting-edge technology and a dedicated team to offer fast, secure, and transparent delivery solutions you can trust.
+                </p>
+            </div>
+        </section>
+
+        
+        <section id="mission-vision" class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="text-center text-md-start">
+                             <i class="fas fa-bullseye fa-3x mb-3"></i> 
+                            <h2 class="h3 mb-3">Our Mission</h2>
+                            <p class="text-muted">To provide the fastest, most reliable, and secure parcel delivery service through innovative technology and dedicated personnel, ensuring customer satisfaction with every shipment.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                         <div class="text-center text-md-start">
+                             <i class="fas fa-binoculars fa-3x mb-3"></i> 
+                            <h2 class="h3 mb-3">Our Vision</h2>
+                            <p class="text-muted">To be the leading tech-driven logistics provider in the region, recognized for our efficiency, transparency, and commitment to connecting businesses and individuals seamlessly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="why-choose-suivi" class="py-5">
+            <div class="container">
+                <h2 class="text-center text-white section-title">Why Choose Suivi?</h2>
+                <div class="row text-center g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-item p-4 h-100">
+                            <div class="icon-container mb-3"><i class="fas fa-rocket fa-3x"></i></div>
+                            <h3 class="h5 mb-2">Speed & Efficiency</h3>
+                            <p class="text-muted small">Optimized routes and swift dispatch ensure your parcels arrive faster.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-item p-4 h-100">
+                             <div class="icon-container mb-3"><i class="fas fa-shield-alt fa-3x"></i></div>
+                            <h3 class="h5 mb-2">Unmatched Security</h3>
+                            <p class="text-muted small">Robust handling procedures and secure tracking protect your valuables.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-item p-4 h-100">
+                             <div class="icon-container mb-3"><i class="fas fa-eye fa-3x"></i></div>
+                            <h3 class="h5 mb-2">Real-Time Tracking</h3>
+                            <p class="text-muted small">Monitor your delivery every step of the way with our intuitive app.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-item p-4 h-100">
+                             <div class="icon-container mb-3"><i class="fas fa-headset fa-3x"></i></div>
+                            <h3 class="h5 mb-2">Dedicated Support</h3>
+                            <p class="text-muted small">Our customer service team is always ready to assist you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="how-it-works" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 section-title">Our Simple Process</h2>
+                <div class="row text-center g-4">
+                    <div class="col-md-4">
+                        <div class="process-step p-3">
+                            <div class="icon-container mb-3"><i class="fas fa-box-open fa-3x"></i></div> 
+                            <h4 class="h6 fw-bold">1. Place Your Order</h4>
+                            <p class="text-muted small">Easily request a pickup through our app or website.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                         <div class="process-step p-3">
+                            <div class="icon-container mb-3"><i class="fas fa-motorcycle fa-3x"></i></div> 
+                            <h4 class="h6 fw-bold">2. Rider Assigned</h4>
+                            <p class="text-muted small">We instantly assign the nearest available rider.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                         <div class="process-step p-3">
+                            <div class="icon-container mb-3"><i class="fas fa-map-location-dot fa-3x"></i></div> 
+                            <h4 class="h6 fw-bold">3. Track & Deliver</h4>
+                            <p class="text-muted small">Follow your parcel in real-time until it's safely delivered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         
+        <section id="our-values" class="py-5">
+            <div class="container">
+                <h2 class="text-center text-white mb-5 section-title">Our Core Values</h2>
+                <div class="row text-center g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="value-item p-3">
+                            <i class="fas fa-handshake fa-2x mb-2"></i> 
+                            <p class="fw-bold text-white mb-1">Reliability</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6">
+                        <div class="value-item p-3">
+                            <i class="fas fa-lock fa-2x mb-2"></i> 
+                            <p class="fw-bold text-white mb-1">Security</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6">
+                        <div class="value-item p-3">
+                            <i class="fas fa-heart fa-2x mb-2"></i> 
+                            <p class="fw-bold text-white mb-1">Customer Focus</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6">
+                        <div class="value-item p-3">
+                            <i class="fas fa-lightbulb fa-2x mb-2"></i> 
+                            <p class="fw-bold text-white mb-1">Innovation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+        <section id="reviews" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 section-title">What Our Customers Say</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm review-card">
+                            <div class="card-body d-flex flex-column">
+                                <blockquote class="blockquote mb-4 flex-grow-1">
+                                    <p><i class="fas fa-quote-left me-2"></i>Suivi has been a game-changer for our deliveries. Our packages arrive on time, and we’re beyond grateful for their reliable service. Highly recommended!</p> 
+                                </blockquote>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <img class="rounded-circle me-3 review-img" src="{{ url_for('static', filename='images/customer1.png') }}" alt="John Onyango" width="50" height="50">
+                                    <footer class="blockquote-footer mb-0">John Onyango</footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm review-card">
+                            <div class="card-body d-flex flex-column">
+                                <blockquote class="blockquote mb-4 flex-grow-1">
+                                    <p><i class="fas fa-quote-left me-2"></i>Suivi has transformed our delivery experience. The reliability and promptness of their service are unparalleled. We couldn't be happier!</p> 
+                                </blockquote>
+                                <div class="d-flex align-items-center mt-auto">
+                                    <img class="rounded-circle me-3 review-img" src="{{ url_for('static', filename='images/customer2.png') }}" alt="Esther Kimani" width="50" height="50">
+                                    <footer class="blockquote-footer mb-0">Esther Kimani</footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="meet-the-team" class="py-5">
+            <div class="container">
+                <h2 class="text-center text-white mb-5 section-title">Meet The Brains Behind Suivi</h2>
+                <div class="row justify-content-center g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center shadow-sm h-100 team-card">
+                            <img src="{{ url_for('static', filename='images/backend.png') }}" class="card-img-top team-member-img mx-auto mt-4 rounded-circle" alt="Victor Njenga">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">Victor Njenga</h5>
+                                <p class="card-text text-muted mb-3">Backend Engineer</p>
+                                <div class="team-social">
+                                    <a href="mailto:victorcyrus01@gmail.com" class="btn btn-outline-dark btn-sm mx-1" title="Email"><i class="fas fa-envelope"></i></a>
+                                    <a href="https://github.com/NjengaC" target="_blank" class="btn btn-outline-dark btn-sm mx-1" title="GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="card text-center shadow-sm h-100 team-card">
+                            <img src="{{ url_for('static', filename='images/frontend.png') }}" class="card-img-top team-member-img mx-auto mt-4 rounded-circle" alt="Jane Doe">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">Jane Doe</h5>
+                                <p class="card-text text-muted mb-3">Frontend Developer</p>
+                                <div class="team-social">
+                                    <a href="#" class="btn btn-outline-dark btn-sm mx-1" title="Email"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="btn btn-outline-dark btn-sm mx-1" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="card text-center shadow-sm h-100 team-card">
+                            <img src="{{ url_for('static', filename='images/pm.png') }}" class="card-img-top team-member-img mx-auto mt-4 rounded-circle" alt="Alex Smith">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">Alex Smith</h5>
+                                <p class="card-text text-muted mb-3">Project Manager</p>
+                                <div class="team-social">
+                                     <a href="#" class="btn btn-outline-dark btn-sm mx-1" title="Email"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="btn btn-outline-dark btn-sm mx-1" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="cta" class="py-5 text-white text-center">
+            <div class="container">
+                <h2 class="h1 mb-4">Ready to Experience Seamless Delivery?</h2>
+                <p class="lead mb-4">Sign up today or contact us to learn more about how Suivi can help your business.</p>
+                <a href="{{ url_for('auth.register') }}" class="btn btn-light btn-lg me-2">Get Started</a>
+                <a href="{{ url_for('main.support') }}" class="btn btn-outline-light btn-lg">Contact Us</a>
+            </div>
+        </section>
+
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+</body>
+</html>

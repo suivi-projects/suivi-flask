@@ -1,0 +1,138 @@
+.assignment-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.assignment-container h1 {
+    font-size: 2em;
+    color: #343a40;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-btn {
+    margin: 5px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+.advanced-filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-dropdown {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.filter-dropdown label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #495057;
+}
+
+.filter-dropdown .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+/* Parcel Cards */
+.parcel-card {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.parcel-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.parcel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.parcel-status {
+    font-size: 0.9em;
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.badge-pending {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.badge-allocated {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.badge-in_progress {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.badge-shipped {
+    background-color: #6610f2;
+    color: #fff;
+}
+
+.badge-arrived {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.parcel-date {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.parcel-details p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #495057;
+}
+
+.no-parcels {
+    text-align: center;
+    font-size: 1em;
+    color: #6c757d;
+    padding: 20px 0;
+}

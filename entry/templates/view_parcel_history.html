@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcel Dispatching History</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/view_parcel_history.css') }}">
+    <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon-32x32.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/headfoot.css') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon-16x16.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-P8XN+Jyrp6rVIiIMT9RYBq5h6DScnIxK1K8yhSfFNSq7hdx38P4qNGpbKNisF3d6V2fK60h0RVaMx6syPeCifQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/ionicons@6.0.2/dist/css/ionicons.min.css">
+</head>
+<body>
+    {% include 'header.html' %}
+    {% if current_user.is_authenticated %}
+    <div class="assignment-container">
+        <h1>Your Parcel Dispatching History</h1>
+
+        <div class="filter-container">
+            <button class="btn btn-outline-primary filter-btn active" data-status="all">All</button>
+            <button class="btn btn-outline-warning filter-btn" data-status="open">Open Parcels</button>
+            <button class="btn btn-outline-success filter-btn" data-status="closed">Closed Parcels</button>
+        </div>
+
+        <div class="advanced-filters">
+            <div class="filter-dropdown">
+                <label for="receiver-filter">Filter by Receiver:</label>
+                <select id="receiver-filter" class="form-control">
+                    <option value="">All Receivers</option>
+                    {% for parcel in all_parcels %}
+                        <option value="{{ parcel.receiver_name }}">{{ parcel.receiver_name }} ({{ parcel.receiver_contact }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-dropdown">
+                <label for="location-filter">Filter by Delivery Location:</label>
+                <select id="location-filter" class="form-control">
+                    <option value="">All Locations</option>
+                    {% for parcel in all_parcels %}
+                        <option value="{{ parcel.delivery_location }}">{{ parcel.delivery_location }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div id="parcel-history">
+            <div class="parcel-section status-open">
+                <h5>Open Parcels</h5>
+                <div class="parcel-list">
+                    {% if open_parcels %}
+                        {% for parcel in open_parcels %}
+                            <div class="parcel-card">
+                                <div class="parcel-header">
+                                    <span class="parcel-status badge badge-{{ parcel.status }}">{{ parcel.status|title }}</span>
+                                    <span class="parcel-date">{{ parcel.date }} <small>{{ parcel.time }}</small></span>
+                                </div>
+                                <div class="parcel-details">
+                                    <p><strong>Receiver Name:</strong> {{ parcel.receiver_name }}</p>
+                                    <p><strong>Receiver Contact:</strong> {{ parcel.receiver_contact }}</p>
+                                    <p><strong>Pickup Location:</strong> {{ parcel.pickup_location }}</p>
+                                    <p><strong>Delivery Location:</strong> {{ parcel.delivery_location }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="no-parcels">No open parcels found.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="parcel-section status-closed">
+                <h5>Closed Parcels</h5>
+                <div class="parcel-list">
+                    {% if closed_parcels %}
+                        {% for parcel in closed_parcels %}
+                            <div class="parcel-card">
+                                <div class="parcel-header">
+                                    <span class="parcel-status badge badge-{{ parcel.status }}">{{ parcel.status|title }}</span>
+                                    <span class="parcel-date">{{ parcel.date }} <small>{{ parcel.time }}</small></span>
+                                </div>
+                                <div class="parcel-details">
+                                    <p><strong>Receiver Name:</strong> {{ parcel.receiver_name }}</p>
+                                    <p><strong>Receiver Contact:</strong> {{ parcel.receiver_contact }}</p>
+                                    <p><strong>Pickup Location:</strong> {{ parcel.pickup_location }}</p>
+                                    <p><strong>Delivery Location:</strong> {{ parcel.delivery_location }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="no-parcels">No closed parcels found.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="assignment-container">
+        <h1>Parcel Allocation History</h1>
+        <p>Please log in to view your parcel history.</p>
+    </div>
+    {% endif %}
+    {% include 'footer.html' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const status = this.getAttribute('data-status');
+                    filterParcels(status);
+                });
+            });
+
+            const receiverFilter = document.getElementById('receiver-filter');
+            const locationFilter = document.getElementById('location-filter');
+
+            receiverFilter.addEventListener('change', applyFilters);
+            locationFilter.addEventListener('change', applyFilters);
+
+            function applyFilters() {
+                const receiver = receiverFilter.value;
+                const location = locationFilter.value;
+
+                const parcels = document.querySelectorAll('.parcel-card');
+                parcels.forEach(parcel => {
+                    const parcelReceiver = parcel.querySelector('.parcel-details p:nth-child(1)').textContent.split(': ')[1];
+                    const parcelLocation = parcel.querySelector('.parcel-details p:nth-child(4)').textContent.split(': ')[1];
+
+                    const matchesReceiver = !receiver || parcelReceiver === receiver;
+                    const matchesLocation = !location || parcelLocation === location;
+
+                    if (matchesReceiver && matchesLocation) {
+                        parcel.style.display = 'block';
+                    } else {
+                        parcel.style.display = 'none';
+                    }
+                });
+            }
+
+            function filterParcels(status) {
+                const openSection = document.querySelector('.status-open');
+                const closedSection = document.querySelector('.status-closed');
+
+                if (status === 'all') {
+                    openSection.style.display = 'block';
+                    closedSection.style.display = 'block';
+                } else if (status === 'open') {
+                    openSection.style.display = 'block';
+                    closedSection.style.display = 'none';
+                } else if (status === 'closed') {
+                    openSection.style.display = 'none';
+                    closedSection.style.display = 'block';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
