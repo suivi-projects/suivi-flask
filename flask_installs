@@ -1,17 +1,5 @@
-Flask
-Flask-WTF
-Flask-Login
-Flask-Bcrypt
-Flask-SQLAlchemy
-Stripe
-email-validator
-psycopg2-binary
-flask-sslify
-Flask-Mail
-geopy
-geoalchemy2
-twilio
-retrying
-flask-admin
-pip install requests
+#!/bin/bash
 
+source venv/bin/activate
+
+python3 -m pip install Flask Flask-WTF Flask-Login Flask-Bcrypt Flask-SQLAlchemy Stripe email-validator psycopg2-binary flask-sslify Flask-Mail geopy geoalchemy2 twilio retrying flask-admin
