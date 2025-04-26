@@ -3,7 +3,6 @@
 /entry/routes/__pycache__/*
 /entry/__pycache__/*
 /node_modules/*
-/migrations/
 *.py[cod]
 *$py.class
 __pycache__/
@@ -171,4 +170,3 @@ __pycache__
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 test_db
-migrations/
